@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Mi primera app</string>
+    <string name="usuarios">Contactos</string>
+    <string name="name">Nombre</string>
+    <string name="interruptor">Bloquear</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="male">El</string>
+    <string name="female">Ella</string>
+    <string name="accept_terms_and_conditions">Vender sus datos</string>
+    <string name="previous"><![CDATA[<]]></string>
+    <string name="cuanto_hablamos">Cuánto hablamos</string>
+    <string name="c_mo_me_cae">Cómo me cae</string>
+</resources>

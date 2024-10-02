@@ -9,6 +9,8 @@
     <string name="female">Ella</string>
     <string name="accept_terms_and_conditions">Vender sus datos</string>
     <string name="previous"><![CDATA[<]]></string>
+    <string name="como_me_cae">Cómo me cae</string>
     <string name="cuanto_hablamos">Cuánto hablamos</string>
-    <string name="c_mo_me_cae">Cómo me cae</string>
+    <string name="contacto_anadido">Contacto añadido correctamente</string>
+    <string name="E_CONTACTO_YA_EXISTE">Error al añadir el contacto</string>
 </resources>

@@ -11,6 +11,7 @@ import com.example.myapplication.data.Repository
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.domain.model.Contacto
 import com.example.myapplication.domain.useCases.contactos.AddContactoUseCase
+import com.example.myapplication.domain.useCases.contactos.DeleteContactoUseCase
 import com.example.myapplication.domain.useCases.contactos.GetContactos
 import com.example.myapplication.utils.StringProvider
 
@@ -22,7 +23,8 @@ class MainActivity : AppCompatActivity() {
         MainViewModelFactory(
             StringProvider.instance(this),
             AddContactoUseCase(),
-            GetContactos(Repository()),
+            DeleteContactoUseCase(),
+            GetContactos(),
             )
     }
 
@@ -48,6 +50,15 @@ class MainActivity : AppCompatActivity() {
             }
             state.contacto?.let { contacto ->
                 binding.Title.text = contacto.nombre
+                binding.editTextName.setText(contacto.nombre)
+                binding.editTextEmail.setText(contacto.email)
+                binding.editTextPassword.setText(contacto.pwd)
+                binding.radioMale.isChecked = contacto.genero
+                binding.radioFemale?.isChecked ?: !contacto.genero
+                binding.switchBlock?.isChecked = contacto.bloquear
+                binding.ratingBarStars.rating = contacto.estrellas
+                binding.ratingBarFrequency.progress = contacto.frecuencia.toInt()
+                binding.switchSellData.isChecked = contacto.venderDatos
             }
         }
     }
@@ -72,6 +83,9 @@ class MainActivity : AppCompatActivity() {
             }
             buttonPrevious.setOnClickListener {
                 viewModel.pasarContacto(-1)
+            }
+            buttonDelete.setOnClickListener {
+                viewModel.deleteContacto()
             }
         }
     }

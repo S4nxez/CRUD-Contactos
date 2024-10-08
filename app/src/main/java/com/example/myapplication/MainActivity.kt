@@ -49,17 +49,22 @@ class MainActivity : AppCompatActivity() {
                 viewModel.errorMostrado()
             }
             state.contacto?.let { contacto ->
-                binding.Title.text = contacto.nombre
-                binding.editTextName.setText(contacto.nombre)
-                binding.editTextEmail.setText(contacto.email)
-                binding.editTextPassword.setText(contacto.pwd)
-                binding.radioMale.isChecked = contacto.genero
-                binding.radioFemale?.isChecked ?: !contacto.genero
-                binding.switchBlock?.isChecked = contacto.bloquear
-                binding.ratingBarStars.rating = contacto.estrellas
-                binding.ratingBarFrequency.progress = contacto.frecuencia.toInt()
-                binding.switchSellData.isChecked = contacto.venderDatos
+                with (binding){
+                Title.text = contacto.nombre
+                editTextName.setText(contacto.nombre)
+                editTextEmail.setText(contacto.email)
+                editTextPassword.setText(contacto.pwd)
+                radioMale.isChecked = contacto.genero
+                radioFemale?.isChecked ?: !contacto.genero
+                switchBlock?.isChecked = contacto.bloquear
+                ratingBarStars.rating = contacto.estrellas
+                ratingBarFrequency.progress = contacto.frecuencia.toInt()
+                switchSellData.isChecked = contacto.venderDatos
+                }
             }
+            binding.position.text = "${state.indiceMain + 1} of ${state.tamanyo}"
+            binding.buttonNext.isEnabled = !state.isUltimo
+            binding.buttonPrevious.isEnabled = !state.isPrimero
         }
     }
 

@@ -13,4 +13,5 @@
     <string name="cuanto_hablamos">Cuánto hablamos</string>
     <string name="contacto_anadido">Contacto añadido correctamente</string>
     <string name="E_CONTACTO_YA_EXISTE">Error al añadir el contacto</string>
+    <string name="edit_button">Edit button</string>
 </resources>

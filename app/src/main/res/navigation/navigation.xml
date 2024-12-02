@@ -1,0 +1,42 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/listadoFragmentActivity">
+
+    <fragment
+        android:id="@+id/listadoFragmentActivity"
+        android:name="com.example.myapplication.ui.pantallaListado.ListadoFragment"
+        android:label="fragment_listado"
+        tools:layout="@layout/fragment_listado">
+        <action
+            android:id="@+id/action_listadoFragmentActivity_to_detalleActivity"
+            app:destination="@id/detalleActivity"
+            app:popUpTo="@id/detalleActivity" />
+        <action
+                android:id="@+id/action_listadoFragmentActivity_to_crearFragment"
+                app:destination="@id/crearFragment"
+                app:popUpTo="@id/crearFragment" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/crearFragment"
+            android:name="com.example.myapplication.ui.pantallaCrear.CrearActivity"
+            android:label="fragment_crear"
+            tools:layout="@layout/activity_crear" />
+    <fragment
+        android:id="@+id/detalleActivity"
+        android:name="com.example.myapplication.ui.pantallaDetalle.DetalleActivity"
+        android:label="activity_detalle"
+        tools:layout="@layout/activity_detalle" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/otraFragment"
+            android:name="com.example.myapplication.ui.posts.OtraFragment"
+            android:label="fragment_otra"
+            tools:layout="@layout/fragment_otra" />
+</navigation>

@@ -1,9 +1,13 @@
-package com.example.myapplication.utils
+package com.example.myapplication.ui.utils
 
 import android.content.Context
 import androidx.annotation.StringRes
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class StringProvider(val context: Context) {
+@Singleton
+class StringProvider @Inject constructor(@ApplicationContext val context: Context) {
     companion object {
         fun instance(context: Context): StringProvider = StringProvider(context)
     }

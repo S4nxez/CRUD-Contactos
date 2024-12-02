@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.navigation.safeargs.kotlin)
 }
 
 android {
@@ -15,6 +18,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "API_URL", "\"https://jsonplaceholder.typicode.com/\"")
     }
 
     buildTypes {
@@ -28,6 +32,7 @@ android {
     }
     buildFeatures{
         viewBinding=true
+        buildConfig=true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -52,6 +57,22 @@ dependencies {
     // by ViewModels delegation extensions for activity
     implementation(libs.androidx.activity.ktx)
 
+    // Hilt
+    implementation(libs.hilt.core)
+    ksp(libs.hilt.compiler)
+
+    //retrofit
+    implementation(libs.bundles.retrofit)
+
+    //coil
+    implementation(libs.coil)
+
+    //Logs
+    implementation(libs.timber)
+
+    //Fragments
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
     //librerias del viewmodel
     implementation(libs.androidx.lifecycle.viewmodel.ktx)

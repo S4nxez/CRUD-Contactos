@@ -1,10 +1,18 @@
 package com.example.myapplication.domain.model
 
-data class Contacto(val nombre : String = "Contacto",
-                    val email : String = "",
-                    val pwd : String = "",
-                    val genero : Boolean = false,
-                    var bloquear : Boolean = false,
-                    var estrellas : Float = 0.0f,
-                    var frecuencia : Float = 0.0f,
-                    val venderDatos : Boolean = false,)
+import com.example.myapplication.data.remote.modelo.ObjetoRemotoItem
+
+data class Contacto(val id : Int = 0,
+                    val nombre : String = "",
+                    val job : String = "",
+                    val radioEl : Boolean = true,
+                    val radioElla : Boolean = false,
+                    val actor : String = "",
+                    val foto : String = "https://thispersondoesnotexist.com/",
+                    )
+
+fun Contacto.toContacto() : Contacto =
+    Contacto(id, nombre, job, radioEl, radioElla, actor)
+
+fun Contacto.toObjetoRemotoItem() : ObjetoRemotoItem =
+    ObjetoRemotoItem(id = id, name = nombre, website = foto)
